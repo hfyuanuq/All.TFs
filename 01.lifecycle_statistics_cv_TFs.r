@@ -15,13 +15,21 @@ colData <- data.frame(
 library(dplyr)
 library(tidyr)
 
-## filter out genes at least 3 smaples  >0 
+########### filter out genes at least 3 smaples  >0 
 expressed_genes <- norm_data_long %>%
   group_by(Group, Gene) %>%
   summarise(non_zero_count = sum(Expression > 0), .groups = "drop") %>%
   group_by(Gene) %>%
   filter(all(non_zero_count >= 3)) %>%  
   distinct(Gene)
+
+######## non_filter 
+expressed_genes <- norm_data_long %>%
+  group_by(Group, Gene) %>%
+  summarise(non_zero_count = sum(Expression > 0), .groups = "drop") %>%
+  group_by(Gene) %>%
+  distinct(Gene)
+
 
 ## trans to long 
 
