@@ -1,7 +1,7 @@
 #this script used for the merge the peaks from different ATAC-seq biological replicates
 #this analysis is running for Constant and Natural light conditions
 #this work is running on HPC
-#this work is done by Yuanyuan Huan
+#this work is done by Huifang Yuan
 
 #!/bin/bash
 
